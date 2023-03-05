@@ -1,0 +1,51 @@
+'Technology_Artifact
+'Technology_Collaboration
+'Technology_CommunicationNetwork
+'Technology_Device
+'Technology_Event
+'Technology_Function
+'Technology_Interaction
+'Technology_Interface
+'Technology_Node
+'Technology_Path
+'Technology_Process
+'Technology_Service
+'Technology_SystemSoftware
+
+@startuml
+!include 0_Archimate.puml
+
+LAYOUT_TOP_DOWN
+hide empty members /'Hide empty attributes or operations'/
+skinparam nodesep 40
+skinparam ranksep 40
+skinparam linetype ortho /'Linetypes can be ortho, polyline or outcomment "skinparam linetype"'/
+skinparam WrapWidth 20
+
+title Technology elements
+
+'Technology elements'
+
+Technology_Node(technology_node, "Technology node")
+Technology_Function(technology_function, "Technology Function")
+Technology_Service(technology_service, "Technology Service")
+Technology_Interface(technology_interface, "Technology Interface")
+Technology_Artifact(technology_artifact, "Technology Artifact")
+Technology_SystemSoftware(technology_system_software_db, "Technology System Software - DB")
+Technology_SystemSoftware(technology_system_software_os, "Technology System Software - OS")
+Technology_Device(technology_device, "Technology Device")
+
+'Technology relationships'
+
+Rel_Assignment_Left(technology_node, technology_function)
+Rel_Assignment_Left(technology_interface, technology_service)
+Rel_Composition_Up(technology_node, technology_interface)
+Rel_Access_w_Left(technology_function, technology_artifact)
+Rel_Realization_Up(technology_function, technology_service)
+Rel_Assignment_Up(technology_system_software_db, technology_artifact)
+Rel_Assignment_Up(technology_system_software_os, technology_node)
+Rel_Assignment_Left(technology_system_software_os, technology_system_software_db)
+Rel_Assignment_Up(technology_device, technology_system_software_os)
+
+
+@enduml

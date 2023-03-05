@@ -1,0 +1,53 @@
+' Business_Actor
+' Business_Role
+' Business_Collaboration
+' Business_Interface
+' Business_Process
+' Business_Function
+' Business_Interaction
+' Business_Event
+' Business_Service
+' Business_Object
+' Business_Contract
+' Business_Representation
+' Business_Product
+' Business_Location
+
+@startuml
+!include 0_Archimate.puml
+
+LAYOUT_TOP_DOWN
+hide empty members /'Hide empty attributes or operations'/
+skinparam nodesep 40
+skinparam ranksep 40
+skinparam linetype ortho /'Linetypes can be ortho, polyline or outcomment "skinparam linetype"'/
+skinparam WrapWidth 20
+
+title Business elements
+
+'Elements'
+
+Business_Actor(business_actor, "Business Actor")
+Business_Role(business_role, "Business Role")
+Business_Process(business_process, "Business Process")
+Business_Object(business_object, "Business Object")
+Business_Service(business_service, "Business Service")
+Business_Interface(business_interface, "Business Interface")
+
+Business_Function(business_function_01, "Business Function 01")
+Business_Function(business_function_02, "Business Function 02")
+Business_Function(business_function_03, "Business Function 03")
+
+'Relationships'
+
+Rel_Assignment_Left(business_actor, business_role)
+Rel_Assignment_Left(business_role, business_process)
+Rel_Assignment_Left(business_interface, business_service)
+Rel_Composition_Up(business_role, business_interface)
+Rel_Realization_Up(business_process, business_service)
+Rel_Access_rw_Left(business_process, business_object)
+
+Rel_Triggering_Right(business_function_01, business_function_02)
+Rel_Triggering_Right(business_function_02, business_function_03)
+
+@enduml

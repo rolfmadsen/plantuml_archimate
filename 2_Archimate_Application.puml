@@ -1,0 +1,39 @@
+' Application_Collaboration
+' Application_Component
+' Application_DataObject
+' Application_Event
+' Application_Function
+' Application_Interaction
+' Application_Interface
+' Application_Process
+' Application_Service
+
+@startuml
+!include 0_Archimate.puml
+
+LAYOUT_TOP_DOWN
+hide empty members /'Hide empty attributes or operations'/
+skinparam nodesep 40
+skinparam ranksep 40
+skinparam linetype ortho /'Linetypes can be ortho, polyline or outcomment "skinparam linetype"'/
+skinparam WrapWidth 20
+
+title Application elements
+
+'Application elements'
+
+Application_Component(application_component, "Application Component")
+Application_Function(application_function, "Application Function")
+Application_Service(application_service, "Application Service")
+Application_Interface(application_interface, "Application Interface")
+Application_DataObject(application_dataObject, "Application Data Object")
+
+'Application relationships'
+
+Rel_Assignment_Left(application_component, application_function)
+Rel_Assignment_Left(application_interface, application_service)
+Rel_Composition_Up(application_component, application_interface)
+Rel_Association_Left(application_function, application_dataObject)
+Rel_Realization_Up(application_function, application_service)
+
+@enduml

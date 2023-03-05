@@ -1,0 +1,30 @@
+@startuml
+!include 0_Archimate.puml
+!include 1_Archimate_Business.puml
+!include 2_Archimate_Application.puml
+!include 3_Archimate_Technology.puml
+
+LAYOUT_TOP_DOWN
+hide empty members /'Hide empty attributes or operations'/
+skinparam nodesep 50
+skinparam ranksep 100
+skinparam linetype ortho /'Linetypes can be ortho, polyline or outcomment "skinparam linetype"'/
+'skinparam WrapWidth 20
+'scale 1
+'scale max 500 height
+
+!define Layout_Sprint
+
+title Layered view of application and business elements
+
+' Relationsships between application and business layer
+Rel_Serving_Up(application_interface, business_role)
+Rel_Serving_Up(application_service, business_process)
+Rel_Realization_Up(application_dataObject, business_object)
+
+' Relationsships between technology and application layer
+Rel_Realization_Up(technology_artifact, application_dataObject)
+Rel_Serving_Up(technology_service, application_function)
+Rel_Serving_Up(technology_interface, application_component)
+
+@enduml
