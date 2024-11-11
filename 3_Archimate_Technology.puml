@@ -12,7 +12,7 @@
 'Technology_Service
 'Technology_SystemSoftware
 
-@startuml
+@startuml Technology elements
 !include 0_Archimate.puml
 
 LAYOUT_TOP_DOWN

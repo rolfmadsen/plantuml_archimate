@@ -8,7 +8,7 @@
 ' Application_Process
 ' Application_Service
 
-@startuml
+@startuml Application elements
 !include 0_Archimate.puml
 
 LAYOUT_TOP_DOWN

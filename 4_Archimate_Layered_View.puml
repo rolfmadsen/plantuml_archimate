@@ -1,4 +1,5 @@
-@startuml
+@startuml Layered view of application, business and technology elements
+
 !include 0_Archimate.puml
 !include 1_Archimate_Business.puml
 !include 2_Archimate_Application.puml
@@ -15,7 +16,7 @@ skinparam linetype ortho /'Linetypes can be ortho, polyline or outcomment "skinp
 
 !define Layout_Sprint
 
-title Layered view of application and business elements
+title Layered view of application, business and technology elements
 
 ' Relationsships between application and business layer
 Rel_Serving_Up(application_interface, business_role)
